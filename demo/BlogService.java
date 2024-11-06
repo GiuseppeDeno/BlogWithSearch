@@ -155,49 +155,4 @@ public class BlogService {
 		
 		
 		
-		/*
-		public ArrayList<Articolo> getArticoliPerParolaChiave(String parolaChiave) {
-	        List<Articolo> lista = entityManager.createQuery(
-	                "SELECT a FROM Articolo a WHERE a.titolo = :parolaChiave", Articolo.class)
-	                .setParameter("parolaChiave", parolaChiave)
-	                .getResultList();
-
-	        return new ArrayList<>(lista); // cast da List a ArrayList
-		}
-	        */
-	        
-	        
-	        
-	        
-	        
 		
-		/*  NON FUNZIONA 
-		@Transactional  ///Nota 1
-		public ArrayList<Articolo> getArtByC() {
-
-			/// >>>>>>>>>>>>>NOTA IMPORTANTE
-			// Select l From Libri l" Libri è l'entita che crea la tabella. .
-			/// con jdbc template
-			// mettavamo il nome della tabella ma qui l'entita crea la tabella , e bisogna
-			/// mettere l'entita!!!!!!!!!!!!!
-
-			List<Articolo> lista = entityManager.createQuery("SELECT a FROM Articolo a WHERE a.categoria = ?1", Articolo.class).getResultList();
-
-			// cast da list a ArrayList
-			ArrayList<Articolo> listaArticoliC = (ArrayList<Articolo>) lista;
-
-			return listaArticoliC;
-		}
-		*/
-		
-
-}
-
-/* public ArrayList<Articolo> getArtByC(String categoria) {
-        List<Articolo> lista = entityManager.createQuery(
-                "SELECT a FROM Articolo a WHERE a.categoria = :categoria", Articolo.class)
-                .setParameter("categoria", categoria)
-                .getResultList();
-
-        return new ArrayList<>(lista); // cast da List a ArrayList
-    }*/
