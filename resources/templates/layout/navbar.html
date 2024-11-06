@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+ 
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+ 
+    <!-- Includi il link a Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div th:fragment="navbar"> 
+<div class="navbar-fixed">
+    <nav class="black">
+      <div class="nav-wrapper ">
+        <a href="/" class="brand-logo">Blog Notizie</a>
+        <ul class="right hide-on-med-and-down">
+         <!-- <li><a href="sass.html"></a></li>  --> 
+        <!--  <li><a href="#"><i class="material-icons">search</i></a></li>   --> 
+          <li><a href="/gestoreArticoli"><i class="fas fa-sign-in-alt "style='font-size:12px; margin:10px:'></i> Accedi al Gestore</a></li>
+<!--  oppure dinamicamente  <li><a th:href="@{/gestoreArticoli}"><i class="fas fa-sign-in-alt" style='font-size:12px; margin:10px:'></i> Accedi</a></li>
+  --> 
+        </ul>
+      </div>
+    </nav>
+  </div>
+ 
+</div>
+<!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+ 
+</body>
+</html>

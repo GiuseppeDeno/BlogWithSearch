@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Articoli</title>
+</head>
+<body>
+
+<div th:include="layout/navbar :: navbar"></div>
+<div class="container">  
+
+    <h1>Gestione Articoli</h1>
+
+    <!-- Form per aggiungere un nuovo articolo -->
+    <h2>Aggiungi un nuovo articolo</h2>
+    <form action="/aggiungiArticolo" method="post">
+        <label for="titolo">Titolo:</label>
+        <input type="text" id="titolo" name="titolo"><br><br>
+
+        <label for="contenuto">Contenuto:</label>
+        <textarea id="contenuto" name="contenuto" rows="4" cols="50"></textarea><br><br>
+
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url"><br><br>
+
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria"><br><br>
+
+        <button type="submit">Aggiungi Articolo</button>
+    </form>
+
+    <!-- Lista degli articoli esistenti con possibilità di rimuoverli -->
+    <h2>Articoli Esistenti</h2>
+    <ul>
+        <th:block th:each="articolo : ${lista}"> 
+            <li>
+                <span th:text="${articolo.titolo}"></span> 
+                <span th:text="${articolo.categoria}"></span>
+                <form action="/rimuoviArticolo" method="post" style="display:inline;">
+                    <input type="hidden" name="titolo" th:value="${articolo.titolo}" />
+                    <button type="submit">Rimuovi</button>
+                </form>
+            </li>
+        </th:block>
+    </ul>
+</div>
+
+<!-- con cartds  -->
+<div >
+<h2>Articoli Esistenti</h2>
+<div class="row">
+    <th:block th:each="articolo : ${lista}">
+        <div class="col  l4"> <!-- l4 3 card per riga  -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title" th:text="${articolo.titolo}"></span>
+                    <p th:text="${articolo.categoria}"></p>
+                </div>
+                <div class="card-action">
+                    <form action="/rimuoviArticolo" method="post" style="display:inline;">
+                        <input type="hidden" name="titolo" th:value="${articolo.titolo}" />
+                        <button type="submit" class="btn red">Rimuovi</button>
+                    </form>
+                    <form action="/cambiaCategoria" method="post" style="display:inline;">
+    <input type="hidden" name="titolo" th:value="${articolo.titolo}" />
+    <input type="text" name="categoria" placeholder="Nuova Categoria" />
+    <button type="submit" class="btn blue">Cambia Categoria</button>
+</form>
+                    
+                </div>
+            </div>
+        </div>
+    </th:block>
+</div>
+
+
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+</body>
+</html>
